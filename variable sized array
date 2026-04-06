@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n, q;
+    cin >> n >> q;
+
+    // Create a vector of vectors to hold the variable-sized arrays
+    vector<vector<int>> a(n);
+
+    for (int i = 0; i < n; i++) {
+        int k;
+        cin >> k; // Read the size of the current inner array
+        a[i].resize(k); // Resize the inner vector to hold k elements
+        for (int j = 0; j < k; j++) {
+            cin >> a[i][j];
+        }
+    }
+
+    // Process each query
+    for (int count = 0; count < q; count++) {
+        int i, j;
+        cin >> i >> j;
+        // Access the j-th element of the i-th array
+        cout << a[i][j] << endl;
+    }
+
+    return 0;
+}
